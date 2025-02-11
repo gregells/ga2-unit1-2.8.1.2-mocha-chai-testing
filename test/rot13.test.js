@@ -3,7 +3,7 @@ const { describe, it } = require('mocha')
 const chai = require('chai')
 const expect = chai.expect
 
-describe('rot13 tests', () => {
+describe('rot13 function tests', () => {
   describe('it should rotate characters by 13 places', () => {
     it('should convert a into n', function () {
       // assert.strictEqual('n', rot13('a'))
