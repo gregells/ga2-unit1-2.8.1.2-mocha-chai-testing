@@ -38,6 +38,30 @@ class YearDate {
     return `${this.MONTHS[this.month - 1].name} ${this.day}th, ${this.year}`
   }
 
+  nextDay () {
+    // If it's February and a leap year:
+    if (this.isLeapYear() && this.month === 2) {
+      if (this.day === 29) {
+        this.day = 1
+        this.month += 1
+      } else {
+        this.day += 1
+      }
+      // If it's the end of December:
+    } else if (this.month === 12 && this.day === 31) {
+      this.day = 1
+      this.month = 1
+      this.year += 1
+      // Otherwise increment based on whether at the end of the month or not:
+    } else if (this.day === this.MONTHS[this.month - 1].days) {
+      this.day = 1
+      this.month += 1
+    } else {
+      this.day += 1
+    }
+    // Return the updated date, to allow chaining methods:
+    return this
+  }
 }
 
 module.exports = YearDate
