@@ -159,23 +159,23 @@ describe('YearDate class tests', () => {
     })
     it('should correctly increment days within the month', function () {
       const date = new YearDate(20, 2, 2025)
-      expect(date.nextDay()).to.equal(new YearDate(21, 2, 2025))
+      expect(date.nextDay().prettyPrint()).to.equal('February 21st, 2025')
     })
     it('should correctly increment days at the end of the month', function () {
       const date = new YearDate(31, 1, 2025)
-      expect(date.nextDay()).to.equal(new YearDate(1, 2, 2025))
+      expect(date.nextDay().prettyPrint()).to.equal('February 1st, 2025')
     })
     it('should correctly increment days at the end of the year', function () {
       const date = new YearDate(31, 12, 2024)
-      expect(date.nextDay()).to.equal(new YearDate(1, 1, 2025))
+      expect(date.nextDay().prettyPrint()).to.equal('January 1st, 2025')
     })
     it('should correctly increment at the end of Feb. in a leap year', function () {
       const date = new YearDate(29, 2, 2024)
-      expect(date.nextDay()).to.equal(new YearDate(1, 3, 2024))
+      expect(date.nextDay().prettyPrint()).to.equal('March 1st, 2024')
     })
     it('should correctly increment at the end of Feb. in a non-leap year', function () {
       const date = new YearDate(28, 2, 2025)
-      expect(date.nextDay()).to.equal(new YearDate(1, 3, 2025))
+      expect(date.nextDay().prettyPrint()).to.equal('March 1st, 2025')
     })
   })
   describe('There should be a .daysBetween(other) method that returns the numbers of days between two dates.', () => {
