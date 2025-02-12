@@ -203,5 +203,15 @@ describe('YearDate class tests', () => {
       const date2 = new YearDate(20, 8, 2006)
       expect(date2.daysBetween(date1)).to.equal(365)
     })
+    it('should work across leap years', function () {
+      const date1 = new YearDate(20, 8, 2003)
+      const date2 = new YearDate(20, 8, 2004)
+      expect(date2.daysBetween(date1)).to.equal(366)
+    })
+    it('should work across decades with multiple leap years', function () {
+      const date1 = new YearDate(1, 1, 1990)
+      const date2 = new YearDate(1, 1, 2004)
+      expect(date2.daysBetween(date1)).to.equal(5113)
+    })
   })
 })
