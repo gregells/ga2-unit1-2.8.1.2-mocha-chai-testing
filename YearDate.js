@@ -18,6 +18,12 @@ class YearDate {
       { name: 'December', days: 31 }
     ]
   }
+
+  daysInMonth () {
+    if (this.month === 2 && this.isLeapYear()) return 29
+    return this.MONTHS[this.month - 1].days
+  }
+
 }
 
 module.exports = YearDate
