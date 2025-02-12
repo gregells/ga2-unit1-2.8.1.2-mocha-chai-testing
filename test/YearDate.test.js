@@ -68,6 +68,32 @@ describe('YearDate class tests', () => {
       expect(date.daysInMonth()).to.equal(31)
     })
   })
+  describe('There should be a method called .isLeapYear(year) that returns true on leap years', () => {
+    it('should have a .isLeapYear() method', function () {
+      const date = new YearDate(1, 1, 2025)
+      expect(date.isLeapYear).to.not.be.undefined
+    })
+    it('should correctly determine leap years', function () {
+      const date = new YearDate(1, 1, 2020)
+      expect(date.isLeapYear()).to.equal(true)
+    })
+    it('should correctly determine leap years', function () {
+      const date = new YearDate(1, 1, 2024)
+      expect(date.isLeapYear()).to.equal(true)
+    })
+    it('should correctly determine non-leap years', function () {
+      const date = new YearDate(1, 1, 1900)
+      expect(date.isLeapYear()).to.equal(false)
+    })
+    it('should correctly determine non-leap years', function () {
+      const date = new YearDate(1, 1, 2025)
+      expect(date.isLeapYear()).to.equal(false)
+    })
+    it('should correctly determine non-leap years', function () {
+      const date = new YearDate(1, 1, 2100)
+      expect(date.isLeapYear()).to.equal(false)
+    })
+  })
   describe('There should be a method called .nextDay() that increments a YearDate object from one day to the next', () => {
     it('should have a .nextDay() method', function () {
       const date = new YearDate(20, 2, 2025)
