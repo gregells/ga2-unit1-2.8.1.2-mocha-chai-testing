@@ -93,6 +93,10 @@ describe('YearDate class tests', () => {
       const date = new YearDate(1, 1, 2100)
       expect(date.isLeapYear()).to.equal(false)
     })
+    it('should work when providing a year as an argument', function () {
+      const date = new YearDate(1, 1, 2100)
+      expect(date.isLeapYear(2024)).to.equal(true)
+    })
   })
   describe('There should be a method called .nextDay() that increments a YearDate object from one day to the next', () => {
     it('should have a .nextDay() method', function () {
