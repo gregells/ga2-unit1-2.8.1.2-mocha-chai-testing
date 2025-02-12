@@ -98,32 +98,6 @@ describe('YearDate class tests', () => {
       expect(date.isLeapYear(2024)).to.equal(true)
     })
   })
-  describe('There should be a method called .nextDay() that increments a YearDate object from one day to the next', () => {
-    it('should have a .nextDay() method', function () {
-      const date = new YearDate(20, 2, 2025)
-      expect(date.nextDay).to.not.be.undefined
-    })
-    it('should correctly increment days within the month', function () {
-      const date = new YearDate(20, 2, 2025)
-      expect(date.nextDay()).to.equal(new YearDate(21, 2, 2025))
-    })
-    it('should correctly increment days at the end of the month', function () {
-      const date = new YearDate(31, 1, 2025)
-      expect(date.nextDay()).to.equal(new YearDate(1, 2, 2025))
-    })
-    it('should correctly increment days at the end of the year', function () {
-      const date = new YearDate(31, 12, 2024)
-      expect(date.nextDay()).to.equal(new YearDate(1, 1, 2025))
-    })
-    it('should correctly increment at the end of Feb. in a leap year', function () {
-      const date = new YearDate(29, 2, 2024)
-      expect(date.nextDay()).to.equal(new YearDate(1, 3, 2024))
-    })
-    it('should correctly increment at the end of Feb. in a non-leap year', function () {
-      const date = new YearDate(28, 2, 2025)
-      expect(date.nextDay()).to.equal(new YearDate(1, 3, 2025))
-    })
-  })
   describe('There should be a prettyPrint() method that returns a string like "January 1st, 1988".', () => {
     it('should have a .prettyPrint() method', function () {
       const date = new YearDate(20, 2, 2025)
@@ -160,6 +134,32 @@ describe('YearDate class tests', () => {
     it('should work for 30th of the month', function () {
       const date = new YearDate(30, 8, 2005)
       expect(date.nextDay()).to.equal('August 30th, 2005')
+    })
+  })
+  describe('There should be a method called .nextDay() that increments a YearDate object from one day to the next', () => {
+    it('should have a .nextDay() method', function () {
+      const date = new YearDate(20, 2, 2025)
+      expect(date.nextDay).to.not.be.undefined
+    })
+    it('should correctly increment days within the month', function () {
+      const date = new YearDate(20, 2, 2025)
+      expect(date.nextDay()).to.equal(new YearDate(21, 2, 2025))
+    })
+    it('should correctly increment days at the end of the month', function () {
+      const date = new YearDate(31, 1, 2025)
+      expect(date.nextDay()).to.equal(new YearDate(1, 2, 2025))
+    })
+    it('should correctly increment days at the end of the year', function () {
+      const date = new YearDate(31, 12, 2024)
+      expect(date.nextDay()).to.equal(new YearDate(1, 1, 2025))
+    })
+    it('should correctly increment at the end of Feb. in a leap year', function () {
+      const date = new YearDate(29, 2, 2024)
+      expect(date.nextDay()).to.equal(new YearDate(1, 3, 2024))
+    })
+    it('should correctly increment at the end of Feb. in a non-leap year', function () {
+      const date = new YearDate(28, 2, 2025)
+      expect(date.nextDay()).to.equal(new YearDate(1, 3, 2025))
     })
   })
   describe('There should be a .daysBetween(other) method that returns the numbers of days between two dates.', () => {
