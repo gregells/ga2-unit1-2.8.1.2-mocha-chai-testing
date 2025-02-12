@@ -79,6 +79,44 @@ class YearDate {
     return dayOfYear
   }
 
+  daysBetween (other) {
+    if (this.year === other.year) return Math.abs(this.dayOfYear() - other.dayOfYear())
+
+    // Sort the two dates into earlier and later:
+    let earlier
+    let later
+    if (this.year >= other.year && this.month >= other.month && this.day >= other.day) {
+      earlier = other
+      later = this
+    } else {
+      earlier = this
+      later = other
+    }
+
+    // Initialize daysTotal as 0:
+    let daysTotal = 0
+
+    // Add the number of days from the earlier year:
+    if (earlier.isLeapYear()) {
+      daysTotal += 366 - earlier.dayOfYear()
+    } else {
+      daysTotal += 365 - earlier.dayOfYear()
+    }
+
+    // Add the number of days from the full years in between:
+    for (let i = earlier.year + 1; i < later.year; i++) {
+      if (this.isLeapYear(i)) {
+        daysTotal += 366
+      } else {
+        daysTotal += 365
+      }
+    }
+
+    // Add the number of days from the later year:
+    daysTotal += later.dayOfYear()
+
+    return daysTotal
+  }
 }
 
 module.exports = YearDate
