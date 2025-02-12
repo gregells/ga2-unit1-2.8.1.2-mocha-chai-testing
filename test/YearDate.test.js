@@ -178,6 +178,32 @@ describe('YearDate class tests', () => {
       expect(date.nextDay().prettyPrint()).to.equal('March 1st, 2025')
     })
   })
+  describe('There should be a .dayOfYear() method that returns the day of the year.', () => {
+    it('should have a .dayOfYear() method', function () {
+      const date = new YearDate(20, 2, 2025)
+      expect(date.dayOfYear).to.not.be.undefined
+    })
+    it('should work for dates in January', function () {
+      const date = new YearDate(20, 1, 2005)
+      expect(date.dayOfYear()).to.equal(20)
+    })
+    it('should work for dates in February', function () {
+      const date = new YearDate(20, 2, 2005)
+      expect(date.dayOfYear()).to.equal(51)
+    })
+    it('should work for dates after February 28th in a non-leap year', function () {
+      const date = new YearDate(1, 3, 2005)
+      expect(date.dayOfYear()).to.equal(60)
+    })
+    it('should work for dates after February 28th in a non-leap year', function () {
+      const date = new YearDate(1, 5, 2005)
+      expect(date.dayOfYear()).to.equal(121)
+    })
+    it('should work for dates after February 29th in a leap year', function () {
+      const date = new YearDate(1, 5, 2024)
+      expect(date.dayOfYear()).to.equal(122)
+    })
+  })
   describe('There should be a .daysBetween(other) method that returns the numbers of days between two dates.', () => {
     it('should have a .daysBetween() method', function () {
       const date = new YearDate(20, 2, 2025)
