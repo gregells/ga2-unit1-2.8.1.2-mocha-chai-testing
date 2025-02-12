@@ -105,35 +105,51 @@ describe('YearDate class tests', () => {
     })
     it('should work for 1st of the month', function () {
       const date = new YearDate(1, 1, 1988)
-      expect(date.nextDay()).to.equal('January 1st, 1988')
+      expect(date.prettyPrint()).to.equal('January 1st, 1988')
+    })
+    it('should work for 11th of the month', function () {
+      const date = new YearDate(11, 1, 1988)
+      expect(date.prettyPrint()).to.equal('January 11th, 1988')
     })
     it('should work for 21st of the month', function () {
       const date = new YearDate(21, 1, 1988)
-      expect(date.nextDay()).to.equal('January 21st, 1988')
+      expect(date.prettyPrint()).to.equal('January 21st, 1988')
     })
     it('should work for 2nd of the month', function () {
       const date = new YearDate(2, 4, 1999)
-      expect(date.nextDay()).to.equal('April 2nd, 1999')
+      expect(date.prettyPrint()).to.equal('April 2nd, 1999')
+    })
+    it('should work for 12th of the month', function () {
+      const date = new YearDate(12, 4, 1999)
+      expect(date.prettyPrint()).to.equal('April 12th, 1999')
     })
     it('should work for 22nd of the month', function () {
       const date = new YearDate(22, 4, 1999)
-      expect(date.nextDay()).to.equal('April 22nd, 1999')
+      expect(date.prettyPrint()).to.equal('April 22nd, 1999')
     })
     it('should work for 3rd of the month', function () {
       const date = new YearDate(3, 6, 2001)
-      expect(date.nextDay()).to.equal('June 3rd, 2001')
+      expect(date.prettyPrint()).to.equal('June 3rd, 2001')
+    })
+    it('should work for 13th of the month', function () {
+      const date = new YearDate(13, 6, 2001)
+      expect(date.prettyPrint()).to.equal('June 13th, 2001')
     })
     it('should work for 23rd of the month', function () {
-      const date = new YearDate(3, 6, 2001)
-      expect(date.nextDay()).to.equal('June 23rd, 2001')
+      const date = new YearDate(23, 6, 2001)
+      expect(date.prettyPrint()).to.equal('June 23rd, 2001')
     })
     it('should work for 4th of the month', function () {
       const date = new YearDate(4, 8, 2005)
-      expect(date.nextDay()).to.equal('August 4th, 2005')
+      expect(date.prettyPrint()).to.equal('August 4th, 2005')
+    })
+    it('should work for 14th of the month', function () {
+      const date = new YearDate(14, 8, 2005)
+      expect(date.prettyPrint()).to.equal('August 14th, 2005')
     })
     it('should work for 30th of the month', function () {
       const date = new YearDate(30, 8, 2005)
-      expect(date.nextDay()).to.equal('August 30th, 2005')
+      expect(date.prettyPrint()).to.equal('August 30th, 2005')
     })
   })
   describe('There should be a method called .nextDay() that increments a YearDate object from one day to the next', () => {
