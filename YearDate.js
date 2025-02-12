@@ -62,6 +62,23 @@ class YearDate {
     // Return the updated date, to allow chaining methods:
     return this
   }
+
+  dayOfYear () {
+    // If in January, simply return this.day
+    if (this.month === 1) return this.day
+
+    // For dates beyond January, add the number of days in the preceding months:
+    let dayOfYear = this.day
+    for (let i = 0; i < this.month - 1; i++) {
+      dayOfYear += this.MONTHS[i].days
+    }
+    // If the year is a leap year and the date is after Feb, add another day:
+    if (this.isLeapYear() && this.month > 2) {
+      dayOfYear += 1
+    }
+    return dayOfYear
+  }
+
 }
 
 module.exports = YearDate
