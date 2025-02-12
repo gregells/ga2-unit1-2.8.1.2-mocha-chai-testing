@@ -108,6 +108,18 @@ describe('YearDate class tests', () => {
       expect(date.nextDay()).to.equal(new YearDate(21, 2, 2025))
     })
     it('should correctly increment days at the end of the month', function () {
+      const date = new YearDate(31, 1, 2025)
+      expect(date.nextDay()).to.equal(new YearDate(1, 2, 2025))
+    })
+    it('should correctly increment days at the end of the year', function () {
+      const date = new YearDate(31, 12, 2024)
+      expect(date.nextDay()).to.equal(new YearDate(1, 1, 2025))
+    })
+    it('should correctly increment at the end of Feb. in a leap year', function () {
+      const date = new YearDate(29, 2, 2024)
+      expect(date.nextDay()).to.equal(new YearDate(1, 3, 2024))
+    })
+    it('should correctly increment at the end of Feb. in a non-leap year', function () {
       const date = new YearDate(28, 2, 2025)
       expect(date.nextDay()).to.equal(new YearDate(1, 3, 2025))
     })
