@@ -31,6 +31,13 @@ class YearDate {
     return false
   }
 
+  prettyPrint () {
+    if ([1, 21, 31].includes(this.day)) return `${this.MONTHS[this.month - 1].name} ${this.day}st, ${this.year}`
+    if ([2, 22].includes(this.day)) return `${this.MONTHS[this.month - 1].name} ${this.day}nd, ${this.year}`
+    if ([3, 23].includes(this.day)) return `${this.MONTHS[this.month - 1].name} ${this.day}rd, ${this.year}`
+    return `${this.MONTHS[this.month - 1].name} ${this.day}th, ${this.year}`
+  }
+
 }
 
 module.exports = YearDate
